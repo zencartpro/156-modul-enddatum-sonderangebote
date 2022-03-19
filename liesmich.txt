@@ -1,0 +1,42 @@
+Übersetzung des Plugins „Sale-Special-Ending“ von thatsoftwareguy
+
+Sinn und Zweck des Plugins:
+In Deutschland muss bei Sonderangeboten oder Abverkäufen immer ein Enddatum angegeben werden.
+Mit diesem einfach zu installierenden Plugin wird das Ablaufdatum von den Angeboten/Abverkäufen auf der Produktinformationsseite angezeigt.
+Die Anzeige blendet im Falle eines Abverkaufs über den Abverkaufsmanager so wie auch bei Sonderangeboten das Ablaufdatum ein.
+
+Installation:
+
+• DATENSICHERUNG – FTP-Verzeichnis und Datenbank
+
+• Alle Dateien entpacken – Anleitung vollständig lesen
+
+• Benennen Sie folgende Ordner in den Namen Ihres Templates um:
+
+- NeueDateien - includes – languages – english – extra_definitions – DEINTEMPLATE
+- NeueDateien - includes – languages – german – extra_definitions – DEINTEMPLATE
+- NeueDateien – includes - DEINTEMPLATE
+
+• Laden Sie den Inhalt des Ordners „NeueDateien“ in Ihr Shopverzeichnis hoch.
+
+• Öffnen Sie die Datei aus Ihrem Shopverzeichnis:
+includes – templates – DeinTemplate – templates – tpl_product_info_display.php
+(Wenn diese nicht vorhanden ist, kopieren Sie vorher die Datei aus dem Ordner includes – templates – template_default – templates in den oben genannten Ordner)
+
+• Ergänzen Sie folgende Zeilen Code an der Stelle, an der die Anzeige erscheinen soll:
+<!--bof Sale Special Ending block -->
+<?php
+$ssblock = sale_special_ending((int)$_GET['products_id']);
+if ($ssblock != '') {
+echo "<div class='ssblock'>" . $ssblock . "</div>";
+}
+?>
+<!--eof Sale Special Ending block →
+
+(Optional liegt im Ordner „GeänderteDateien“ eine Beispieldatei, die Code bereits enthält – Bei Verwendung dieser bitte unbedingt mit Ihrer Datei mergen)
+
+• Die Datei speichern und hochladen
+
+• Das Aussehen der Anzeige kann über die CSS Datei verändert werden
+
+• Wenn ein Ablaufdatum vergeben wurde, wird dieses nun auf der Produktinfoseite angezeigt
